@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesse o chat</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <!-- Bootstrap css -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="initial-container d-flex justify-content-center align-items-center shadow">
+      <div class="initial-content rounded-4 p-4">
+        <!-- TItle -->
+        <div class="row mb-3">
+          <div class="col">
+            <h1 class="fs-2 fw-bolder text-blue-500">Acesse o chat.</h1>
+          </div>
+        </div>
+        <form method="get" action="./chat.html">
+          <!-- Category chat select -->
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label class="form-label text-muted">Escolha um chat</label>
+                <select name="io__category-chat" type="select" class="form-select text-muted" id="io__category-chat">
+                  <option value="biology">Biologia</option>
+                  <option value="philosophy">Filosofia</option>
+                  <option value="sociology">Sociologia</option>
+                  <option value="software">Programação</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Category chat select -->
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label class="form-label text-muted">Seu nome</label>
+                <input name="io__username" type="text" class="form-control" id="io__username" placeholder="Digite seu nome">
+              </div>
+            </div>
+          </div>
+          <!-- Confirm button -->
+          <div class="row mt-3">
+            <div class="col">
+              <div class="w-100 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary w-25 fw-bold">Entrar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap js -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous">
+  </script>
+</body>
+</html>
