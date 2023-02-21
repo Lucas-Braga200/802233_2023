@@ -46,3 +46,8 @@ html, body {
   background-color: #f7f7f7;
   height: 400px;
 }
+
+.message-item {
+  border-radius: 0.375rem;
+  width: 250px !important;
+}

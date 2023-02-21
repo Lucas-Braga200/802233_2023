@@ -34,14 +34,7 @@ function getDOMElements() {
 
 function getMessageFromChat() {
   socket.on('message', data => {
-    containerMessages.innerHTML += `
-      <div>
-        <label>
-          <span>${data.username}</span><span>${data.createdAt}</span>
-          ${data.message}
-        </label>
-      </div>
-    `;
+    addMessageToChat(data);
   });
 }
 
@@ -50,6 +43,41 @@ function onLoadPage() {
 
   containerTitleLoading.classList.add('d-none');
   containerTitle.classList.remove('d-none');
+}
+
+function addMessageToChat(data) {
+  if (data.username == username) {
+    containerMessages.innerHTML += `
+      <div class="d-flex justify-content-end w-100 mt-3">
+        <div class="message-item bg-primary d-inline-block">
+          <div class="pt-3 ps-3 pe-3 pb-1">
+            <span class="text-white fs-6">
+            ${data.message}
+            </span>
+          </div>
+          <div class="w-100 text-white fw-light text-end pb-1 pe-1" style="font-size: 0.75rem">
+            ${moment(data.createdAt).locale('pt-BR').format('LLL')}
+          </div>
+        </div>
+      </div>
+    `;
+  } else {
+    containerMessages.innerHTML += `
+      <div class="d-flex justify-content-start w-100 mt-3">
+        <div class="message-item bg-white d-inline-block">
+          <div class="w-100 text-primary fw-bold fs-6 ps-3 pe-3 pt-3">${data.username}</div>
+          <div class="ps-3 pe-3 pb-1">
+            <span class="text-muted fs-6">
+              ${data.message}
+            </span>
+          </div>
+          <div class="w-100 text-black-50 fw-light text-end pb-1 pe-1" style="font-size: 0.75rem">
+            ${moment(data.createdAt).locale('pt-BR').format('LLL')}
+          </div>
+        </div>
+      </div>
+    `;
+  }
 }
 
 // Events
@@ -93,6 +121,8 @@ function handleMessageInputEvent() {
 
 // Init Function
 function init() {
+  moment.locale('pt-BR');
+
   socket = io();
 
   getDOMElements();
@@ -106,14 +136,7 @@ function init() {
 
   socket.emit('accessRoom', { username, categoryChat }, response => {
     response.forEach(message => {
-      containerMessages.innerHTML += `
-        <div>
-          <label>
-            <span>${message.username}</span><span>${message.createdAt}</span>
-            ${message.message}
-          </label>
-        </div>
-      `;
+      addMessageToChat(message);
     });
   });
 }
