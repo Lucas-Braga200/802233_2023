@@ -1,0 +1,16 @@
+{
+  "name": "atividade-20230227",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "atividade-01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lowdb": "^5.1.0",
+    "moment": "^2.29.4"
+  }
+}
